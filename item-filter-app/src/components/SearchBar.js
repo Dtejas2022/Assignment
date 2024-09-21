@@ -12,7 +12,9 @@ import React from 'react';
 
        return (
            <input 
-               type="text" 
+               type="text"
+               className='w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg item-center shadow-sm 
+           focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
                value={searchTerm} 
                onChange={handleChange} 
                placeholder="Search items..." 

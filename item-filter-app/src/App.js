@@ -4,6 +4,7 @@ import store from './redux/store';
 import { setItems } from './redux/itemsSlice';
 import ItemList from './components/ItemList';
 import SearchBar from './components/SearchBar';
+import Heading from './components/Heading';
 
 const App = () => {
     useEffect(() => {
@@ -15,7 +16,10 @@ const App = () => {
     return (
         <Provider store={store}>
             <div>
+                <Heading />
+                <div className='h-screen flex items-center justify-center bg-gray-100'>
                 <SearchBar />
+                </div>
                 <ItemList />
             </div>
         </Provider>
