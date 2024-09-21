@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Assignment
+item-filter-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This file provides instructions on how to set up and run the app, and includes details about its functionality.
+---
+# Item Filter App
 
-## Available Scripts
+This is a React-based Item Filter application that allows users to filter a list of items through a search bar. The app uses Redux for state management and WebSockets for real-time updates. This README contains instructions on how to set up and run the project, as well as additional information about the implementation.
 
-In the project directory, you can run:
+## Table of Contents
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Folder Structure](#folder-structure)
+- [Technologies Used](#technologies-used)
+- [Additional Notes](#additional-notes)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Item Filtering: Users can filter a list of items (e.g., fruits) by typing in a search bar.
+- Real-Time Updates: The item list can be updated in real-time if connected to a WebSocket server.
+- State Management: Redux is used to manage the state of the item list and search query.
+- Responsive UI: The UI is simple and responsive for different screen sizes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+Ensure that you have the following installed:
+- [Node.js](https://nodejs.org/en/) (v12 or later)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clone the repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   git clone https://github.com/your-username/item-filter-app.git
+   cd item-filter-app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install the dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+   # Using npm
+   npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   # Or using Yarn
+   yarn install
+  
+## Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Start the React Development Server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To start the React application, run:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Using npm
+npm start
 
-## Learn More
+# Or using Yarn
+yarn start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This will start the development server and automatically open the app in your default browser at `http://localhost:3000`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 2. (Optional) Start WebSocket Server
 
-### Code Splitting
+If your app uses WebSockets for real-time updates, make sure the WebSocket server is running. Refer to the WebSocket server setup in your project, if applicable.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Folder Structure
 
-### Analyzing the Bundle Size
+/item-filter-app
+│
+├── /public              # Static public assets
+├── /src                 # Source code
+│   ├── /components      # React components (SearchBar, ItemList, etc.)
+│   ├── /redux           # Redux store, actions, and reducers
+│   ├── App.js           # Main application entry point
+│   ├── index.js         # React app bootstrap
+│   └── WebSocketClient.js # Optional: WebSocket client logic
+├── package.json         # Project configuration and dependencies
+└── README.md            # Documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Technologies Used
 
-### Making a Progressive Web App
+- React.js: A JavaScript library for building user interfaces.
+- Redux: A predictable state container for JavaScript apps.
+- Redux Toolkit: Simplifies Redux logic with less boilerplate.
+- WebSockets: For real-time communication (if enabled).
+- CSS/SCSS: For styling components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Additional Notes
 
-### Advanced Configuration
+### State Management with Redux
+The application uses Redux to manage the global state for the list of items and the search query. The `itemsSlice.js` file contains the logic to set and filter items.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Item Filtering
+The `SearchBar` component dispatches a Redux action that updates the search query, which in turn filters the displayed items in the `ItemList` component.
+
+### WebSocket Connection (Optional)
+If you're using WebSockets for real-time updates, ensure that the WebSocket server is correctly configured. You can adjust the WebSocket endpoint in `WebSocketClient.js`.
+
+### Environment Variables
+You can add custom environment variables by creating a `.env` file in the root of the project. For example:
+
+env
+REACT_APP_WEBSOCKET_URL=ws://localhost:3000
 
 ### Deployment
+For deploying the app, consider using platforms like [Netlify](https://www.netlify.com/) or [Vercel](https://vercel.com/). Make sure to update the WebSocket URL to the production server's URL in the environment variables.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Troubleshooting
 
-### `npm run build` fails to minify
+- WebSocket Errors: If the WebSocket connection fails, ensure the WebSocket server is running, and that you're using the correct URL (e.g., `ws://localhost:3000/ws` or `wss://your-server-url` for production).
+- React Development Server Issues: If you face issues starting the React development server, try clearing the cache:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  npm start -- --reset-cache
