@@ -121,5 +121,3 @@ For deploying the app, consider using platforms like [Netlify](https://www.netli
   ```
 
 ---
-
-Feel free to modify this template as needed based on your specific app features and structure!
