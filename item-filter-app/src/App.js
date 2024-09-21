@@ -17,10 +17,11 @@ const App = () => {
         <Provider store={store}>
             <div>
                 <Heading />
-                <div className='h-screen flex items-center justify-center bg-gray-100'>
+                <div className='h-screen flex items-center justify-center bg-gray-100 gap-4'>
                 <SearchBar />
-                </div>
                 <ItemList />
+                </div>
+                
             </div>
         </Provider>
     );
