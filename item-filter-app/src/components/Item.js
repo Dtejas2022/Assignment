@@ -1,6 +1,7 @@
 import React from 'react';
-
-   const Item = React.memo(({ item }) => {
+    
+//used for optimisation
+   const Item = React.memo(({ item }) => { 
        return <div>{item}</div>;
    });
 
